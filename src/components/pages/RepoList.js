@@ -5,7 +5,7 @@ const RepoList = (props) => {
     const [repoList, setRepoList] = useState([]);
     const [userData, setUserData] = useState([]);
 
-    console.log("Repos data : %o", props.history.location.userData); // infinite API resp from SearchBar.js component
+    console.log("Repos data : %o", props.history.location.userData); // infinite API resp from GithubProfileSearch.js component
 
 
     // console.log(`Repo data length = %o`, Object.keys(userData).length);

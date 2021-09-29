@@ -8,11 +8,11 @@ import {
 import './App.css';
 
 
-import NavBar from "./components/pages/NavBar";
+import NavBar from "./components/Header/NavBar";
 // import SearchBarProcess from "./components/searchbar/SearchBarProcess";
-import SearchBar from "./components/pages/SearchBar";
+import GithubProfileSearch from "./components/pages/GithubProfileSearch";
 import RepoDetails from "./components/pages/RepoDetails";
-import RepoList from "./components/RepoList";
+import RepoList from "./components/pages/RepoList";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}
             <Switch>
-                <Route exact path="/" component={SearchBar} />
+                <Route exact path="/" component={GithubProfileSearch} />
                 <Route path="/repo-list" component={RepoList} />
                 <Route path="/repo-details/:login/:repo" component={RepoDetails} />
             </Switch>

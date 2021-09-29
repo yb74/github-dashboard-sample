@@ -10,7 +10,6 @@ const NavBar = () => {
                         data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
-
                 </button>
                 <NavLink to="/" className="text-white my-0 text-decoration-none">Github Dashboard Sample</NavLink>
             </nav>

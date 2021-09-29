@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 
 import Spinner from "../UI/Spinner";
 
-const SearchBar = () => {
+const GithubProfileSearch = () => {
 
     const [userList, setUserList] = useState([]);
 
@@ -125,4 +125,4 @@ const SearchBar = () => {
     );
 };
 
-export default SearchBar;
+export default GithubProfileSearch;
