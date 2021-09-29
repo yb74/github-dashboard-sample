@@ -1,3 +1,11 @@
 .App {
-  text-align: center;
+
+}
+
+.custom-color-navbar {
+  background-color: #77C3DB !important;
+}
+
+.custom-color-search-button {
+  background-color: #FF1595 !important;
 }
