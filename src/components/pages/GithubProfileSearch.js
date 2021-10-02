@@ -13,7 +13,6 @@ const GithubProfileSearch = () => {
 
     // const [limit, setLimit] = useState(5); // limit the suggestion list to 5 names
     const limit = 5; // limit the suggestion list to 5 names
-
     const history = useHistory();
 
     // API call
