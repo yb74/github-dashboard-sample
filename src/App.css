@@ -6,6 +6,19 @@
   background-color: #77C3DB !important;
 }
 
-.custom-color-search-button {
-  background-color: #FF1595 !important;
+.search-button {
+  background-color: rgb(255,22,149) !important;
+}
+
+.search-button:hover {
+  background-color: rgb(120,195,219) !important;
+}
+
+.suggestionLinks {
+  background-color: rgb(255,22,149);
+}
+
+.suggestionLinks:hover {
+  background-color: rgb(120,195,219);
+  cursor: pointer;
 }

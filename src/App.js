@@ -20,7 +20,7 @@ function App() {
         <Switch>
             <Route exact path="/" component={GithubProfileSearch} />
             <Route path="/repo-list" component={RepoList} />
-            <Route path="/repo-details/:login/:repo" component={RepoDetails} />
+            <Route path="/repo-details/:id/:repo" component={RepoDetails} />
         </Switch>
     </div>
   );

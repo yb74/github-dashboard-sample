@@ -1,39 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Redirect, useParams} from "react-router-dom";
 
+import {store} from "../../store/";
+
 const RepoDetails = () => {
-    const [repoDetails, setRepoDetails] = useState([]);
+    const state = store.getState().githubReducer
 
-    let {login, repo} = useParams();
+    let {id} = useParams();
+    let idParam =+ id;
 
-    console.log("param1 login = " + login + " param2 repo = " + repo);
+    // Checking if the states are still stocked in redux store, if not, we redirect to home (redirect to '/')
+    if (state.userReposList.length === 0) {
+        return <Redirect to={'/'}/>
+    }
 
-    // API call
-    useEffect (() => {
-        fetch (
-            `https://api.github.com/repos/${login}/${repo}`,
-            {
-                method: "GET",
-                // headers: new Headers({
-                //     Accept: "application/json"
-                // })
-            }
-        )
-            .then(res => res.json())
-            .then(response => {
-                // setIsLoading(false);
+    const userReposList = state.userReposList[0][0];
+    const repoDetails = Object.values(userReposList).filter(({id}) => id === idParam)[0];
+    const doesIdExists = Object.values(userReposList).find(({id}) => id === idParam);
 
-                // console.log(`Api (getRepoList) response : %o `, response);
-                setRepoDetails(response);
-                // console.log("Repo list = %o", response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }, [login, repo]);
-
-    console.log(`Repo details = %o`, repoDetails);
-    console.log(`Repo details length = %o`, Object.keys(repoDetails).length);
+    console.log("param1 id = " + id);
+    console.log("idParam = " + idParam);
+    console.log("repoDetails = %o", repoDetails);
+    console.log("doesIdExists = %o", doesIdExists);
 
     const formatDate = (date) => {
         return date.slice(0, 10);
@@ -44,7 +32,7 @@ const RepoDetails = () => {
             <div className="text-center shadow-sm p-3 mb-5 bg-white rounded mx-4">
                 <div className="flex justify-content-center top_part_repo_details d-flex px-4">
                     <div className="repo_img" style={profilePictureContainerStyle}>
-                        <img className="rounded" src={repoDetails.owner.avatar_url} style={profilePictureStyle}/>
+                        <img className="rounded" src={repoDetails.owner.avatar_url} alt={repoDetails.owner.login} style={profilePictureStyle}/>
                     </div>
                     <div className="username_and_repo_url">
                         <span className="fw-bold">{repoDetails.owner.login}</span>
@@ -64,8 +52,8 @@ const RepoDetails = () => {
             </div>
         );
     } else {
-        // return <Redirect path="/"/>
-        return <h1>Problem with API call : API response not recieved yet</h1>;
+        return <Redirect to="/"/>
+        // return <h1>Problem with API call : API response not recieved yet</h1>;
     }
 };
 
