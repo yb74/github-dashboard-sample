@@ -110,11 +110,11 @@ const GithubProfileSearch = () => {
                     } else {
                         dispatch(setHasError(true));
                         if (response.status === 403) {
-                            setFormError('API rate limit exceeded. [getUsernameList function]');
+                            setFormError('API rate limit exceeded.');
                             setOpen(true);
                             throw new Error('API rate limit exceeded. [getUsernameList function]');
                         } else {
-                            setFormError('An error occurred. [getUsernameList function]');
+                            setFormError('An error occurred.');
                             setOpen(true);
                             throw new Error('An error occurred. [getUsernameList function]');
                         }
@@ -139,14 +139,14 @@ const GithubProfileSearch = () => {
         if (!response.ok) {
             dispatch(setHasError(true));
             dispatch(setIsLoading(false));
-            if (response.status === 403) {
-                setFormError('API rate limit exceeded. [getUserInfo function]');
+            if (response.status === 404) {
+                setFormError('This user doesn\'t exist. Please enter a valid username !');
                 console.log('API rate limit exceeded. [getUserInfo function]');
                 setOpen(true);
                 // throw new Error('API rate limit exceeded. [getUserInfo function]');
                 return response;
             } else {
-                setFormError('An error occurred. [getUserInfo function]');
+                setFormError('An error occurred.');
                 console.log('An error occurred. [getUserInfo function]');
                 setOpen(true);
                 // throw new Error('An error occurred. [getUserInfo function]');
@@ -172,10 +172,10 @@ const GithubProfileSearch = () => {
         if (!res.ok) {
             dispatch(setHasError(true));
             if (res.status === 403) {
-                setFormError('API rate limit exceeded. [getReposList function]');
+                setFormError('API rate limit exceeded.');
                 setOpen(true);
             } else {
-                setFormError('An error occurred. [getReposList function]');
+                setFormError('An error occurred.');
                 setOpen(true);
             }
         }
@@ -262,7 +262,6 @@ const GithubProfileSearch = () => {
                             Close
                         </Button>
                         <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-                            {/*<CloseIcon fontSize="small"/>*/}
                             X
                         </IconButton>
                     </>
