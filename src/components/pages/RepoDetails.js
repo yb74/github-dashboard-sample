@@ -1,6 +1,8 @@
 import React from 'react';
 import {Redirect, useParams} from "react-router-dom";
 
+import StarIcon from '@mui/icons-material/Star';
+
 import {store} from "../../store/";
 
 const RepoDetails = () => {
@@ -38,6 +40,10 @@ const RepoDetails = () => {
                         <span className="fw-bold">{repoDetails.owner.login}</span>
                         <br />
                         <a href={repoDetails.html_url} target="blank">{repoDetails.html_url}</a>
+                        <p className="mt-2 text-center">
+                            <StarIcon color="warning"/>
+                            {repoDetails.stargazers_count}
+                        </p>
                     </div>
                 </div>
                 <div className="middle_part_repo_details p-5">
