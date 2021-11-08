@@ -2,20 +2,22 @@ import React from 'react';
 
 import {NavLink} from "react-router-dom";
 
-import {setReset} from "../../store/actions";
-import {useDispatch} from "react-redux";
+// import {setReset} from "../../store/actions";
+// import {useDispatch} from "react-redux";
 
 const NavBar = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+
     // We reset the states on click on homepage logo
     const handleClick = () => {
-        dispatch(setReset());
+        // dispatch(setReset());
     }
+
     // We reset the states on click on browser go back button only if url = homepage url
     window.addEventListener('popstate', function () { // browser go back button event handler
         if (window.location.href === 'http://localhost:3000/') { // if url = 'http://localhost:3000/' after going back
             console.log("Went back");
-            dispatch(setReset());
+            // dispatch(setReset());
         }
     });
 

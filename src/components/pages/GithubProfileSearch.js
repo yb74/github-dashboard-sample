@@ -155,8 +155,9 @@ const GithubProfileSearch = () => {
         }
         const data = await response.json();
         dispatch(setIsLoading(false));
-        // console.log(`Api (getUserInfo)response : %o `, data);
+        console.log(`Api (getUserInfo)response : %o `, data);
         dispatch(setUserInfos([data]));
+        console.log("Data with users repo list = %o", data);
         await getReposList(data.repos_url);
 
         console.log("User info = %o", userInfos);

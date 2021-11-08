@@ -40,7 +40,7 @@ const RepoDetails = () => {
                         <span className="fw-bold">{repoDetails.owner.login}</span>
                         <br />
                         <a href={repoDetails.html_url} target="blank">{repoDetails.html_url}</a>
-                        <p className="mt-2 text-center">
+                        <p className="mt-2 mb-0 text-center">
                             <StarIcon color="warning"/>
                             {repoDetails.stargazers_count}
                         </p>
